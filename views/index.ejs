@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    <div class="flex justify-between p-1">
+        <div>
+            <img class="object-scale-down w-1/2" src="/assets/logo.png" alt="Google Logo" />
+        </div>
+        <div class="flex">
+            <% if (currentUser) { %>
+                <div class="flex flex-col justify-center p-1">
+                    <p class="text-center">
+                        Signed in as 
+                    </p>
+                    <p class="text-gray-600 text-center">
+                        <%= currentUser.displayName %>
+                    </p>
+                </div>
+            <% } else { %>
+                <form method="get" action="/login">
+                    <button class="bg-blue-600 p-2 min-w-[80px] rounded-md text-white md:m-1 px-4 shadow-lg hover:bg-blue-800">
+                        Login
+                    </button>
+                </form>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="lg:grid lg:grid-cols-2">
+        <div class="lg:mt-64 mt-32 p-1 lg:ml-4 ml-2">
+            <h2 class="xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl text-center">
+                Premium video meetings.
+            </h2>
+            <h2 class="xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl text-center">
+                Now free for everyone.
+            </h2>
+
+            <h3 class="text-gray-400 text-center px-10 py-4">
+                Google Meet is a free, open-source, cross-platform, cloud-based
+                meeting tool that allows you to join and share presentations,
+                webinars, and live streaming video.
+            </h3>
+
+            <div class="mt-4 md:flex justify-center text-center">
+                <form method="get" action="/room/new">
+                    <button class="bg-blue-600 p-2 mb-2 rounded-md text-white md:m-1 px-2 lg:px-4 shadow-lg hover:bg-blue-800">
+                        New meeting
+                    </button>
+                </form>
+                <form method="get" action="/room/join">
+                    <input type="text" name="roomId" placeholder="Enter a code or link" class="bg-gray-200 p-2 rounded-md text-gray-700 md:m-1 px-2 lg:px-4 shadow-lg hover:bg-gray-300" />
+                    <button class="bg-blue-600 p-2 rounded-md text-white md:m-1 px-4 md:px-1 lg:px-4 shadow-lg hover:bg-blue-800">
+                        Join
+                    </button>
+                </form>
+            </div>  
+
+        </div>
+
+        <div class="lg-mx-0 content-center lg:mt-56 rounded-lg">
+            <img class="object-scale-down w-3/4" src="/assets/front.jpeg" alt="Google Meet" />
+        </div>
+
+    </div>
+</body>
+
+</html>

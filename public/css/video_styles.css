@@ -1,0 +1,21 @@
+#video-grid {
+    display: flex;
+    justify-content: center;
+}
+
+video {
+    width: 300px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 5%;
+    padding: 1px;
+}
+
+.main-controls-button {
+    border-radius: 50%;
+    padding: 10px;
+    width: 40px;
+    margin: 0px 10px;
+    text-align: center;
+    cursor: pointer;
+}
